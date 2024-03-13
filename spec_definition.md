@@ -82,7 +82,7 @@
 - Bloquear un usuario solo por el ID.
 
 ```SQL
-CREATE TABLE Usuarios
+CREATE TABLE Users
 (
     Id INT NOT NULL AUTO_INCREMENT,
     Nombre NVARCHAR(255) NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE Usuarios
     Email NVARCHAR(255) NOT NULL,
     Telefono NVARCHAR(20) NOT NULL,
     Identificacion NVARCHAR(20) NOT NULL,
-    Password NVARCHAR(M) NOT NULL, 
+    Password NVARCHAR(255) NOT NULL, 
     PRIMARY KEY(ID),
     INDEX email_idx(Email)
 );
