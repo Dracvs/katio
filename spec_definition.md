@@ -23,8 +23,8 @@
 ### Tipos de usuario
 
 - Usuario registrado: este usuario son las personas que utilizan la aplicación
-- Usuarios Administradores: 
-  - que suben o bajan el contenido del sitio. 
+- Usuarios Administradores:
+  - que suben o bajan el contenido del sitio.
   - Pueden eliminar o crear usuarios
   - Pueden bloquear usuarios
   - Pueden deshabilitar o habilitar secciones
@@ -90,7 +90,7 @@ CREATE TABLE Users
     Email NVARCHAR(255) NOT NULL,
     Telefono NVARCHAR(20) NOT NULL,
     Identificacion NVARCHAR(20) NOT NULL,
-    Password NVARCHAR(255) NOT NULL, 
+    Passhash NVARCHAR(255) NOT NULL, 
     PRIMARY KEY(ID),
     INDEX email_idx(Email)
 );

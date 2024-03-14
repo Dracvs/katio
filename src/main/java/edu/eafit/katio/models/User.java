@@ -1,17 +1,33 @@
-package main.java.edu.eafit.katio.models;
+package edu.eafit.katio.models;
 
-public class Usuario{
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
+public class User{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
     private String Nombre;
     private String Apellido;
     private String Email;
     private String Telefono;
-    private String Identificacion;
-    private String PassHash; // Password. 
+    private String Identificacion;    
+    private String Passhash; // Password. PassHash
     //Luchomon@pokemon.com || blake3(MeGustaPOkemon);
     
     
+    public String getPasshash() {
+        return Passhash;
+    }
+    public void setPasshash(String passhash) {
+        Passhash = passhash;
+    }
     public long getId() {
         return Id;
     }
@@ -23,12 +39,6 @@ public class Usuario{
     }
     public void setNombre(String nombre) {
         Nombre = nombre;
-    }
-    public String getPassHash() {
-        return PassHash;
-    }
-    public void setPassHash(String passHash) {
-        PassHash = passHash;
     }
     public String getApellido() {
         return Apellido;
