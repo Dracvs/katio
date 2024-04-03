@@ -17,7 +17,7 @@ public class User{
     private String Lastname;
     private String Email;
     private String Phone;
-    private String Identificacion;    
+    private String Identification;
     private String Passhash; // Password. PassHash
     //Luchomon@pokemon.com || blake3(MeGustaPOkemon);
     public long getId() {
@@ -50,17 +50,17 @@ public class User{
     public void setPhone(String phone) {
         Phone = phone;
     }
-    public String getIdentificacion() {
-        return Identificacion;
-    }
-    public void setIdentificacion(String identificacion) {
-        Identificacion = identificacion;
-    }
     public String getPasshash() {
         return Passhash;
     }
     public void setPasshash(String passhash) {
         Passhash = passhash;
+    }
+    public String getIdentification() {
+        return Identification;
+    }
+    public void setIdentification(String identification) {
+        Identification = identification;
     }
     
     
