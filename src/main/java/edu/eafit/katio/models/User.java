@@ -7,44 +7,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="Users")
 public class User{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
-    private String Nombre;
-    private String Apellido;
+    private String Name;
+    private String Lastname;
     private String Email;
-    private String Telefono;
+    private String Phone;
     private String Identificacion;    
     private String Passhash; // Password. PassHash
     //Luchomon@pokemon.com || blake3(MeGustaPOkemon);
-    
-    
-    public String getPasshash() {
-        return Passhash;
-    }
-    public void setPasshash(String passhash) {
-        Passhash = passhash;
-    }
     public long getId() {
         return Id;
     }
     public void setId(long id) {
         Id = id;
     }
-    public String getNombre() {
-        return Nombre;
+    public String getName() {
+        return Name;
     }
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setName(String name) {
+        Name = name;
     }
-    public String getApellido() {
-        return Apellido;
+    public String getLastname() {
+        return Lastname;
     }
-    public void setApellido(String apellido) {
-        Apellido = apellido;
+    public void setLastname(String lastname) {
+        Lastname = lastname;
     }
     public String getEmail() {
         return Email;
@@ -52,11 +44,11 @@ public class User{
     public void setEmail(String email) {
         Email = email;
     }
-    public String getTelefono() {
-        return Telefono;
+    public String getPhone() {
+        return Phone;
     }
-    public void setTelefono(String telefono) {
-        Telefono = telefono;
+    public void setPhone(String phone) {
+        Phone = phone;
     }
     public String getIdentificacion() {
         return Identificacion;
@@ -64,4 +56,13 @@ public class User{
     public void setIdentificacion(String identificacion) {
         Identificacion = identificacion;
     }
+    public String getPasshash() {
+        return Passhash;
+    }
+    public void setPasshash(String passhash) {
+        Passhash = passhash;
+    }
+    
+    
+    
 }
