@@ -3,6 +3,8 @@ CREATE DATABASE Katio
 COLLATE = `uca1400_spanish_ai_ci`; 
 -- Accent Insensitive Case Insensitive
 
+Use Katio;
+
 CREATE TABLE Users
 (
     Id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
