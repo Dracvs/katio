@@ -25,4 +25,11 @@ public class AuthorsController {
         return new ResponseEntity<Iterable<Authors>>(authors, HttpStatus.OK);
     }
     
+    /**
+     * buscar un autor por id
+     * buscar un autor por Nombre o Apellido
+     * Agregar un autor
+     * Editar un autor
+     * Buscar un autor por pais de procedencia
+     */
 }

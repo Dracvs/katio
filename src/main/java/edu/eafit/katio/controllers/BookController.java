@@ -1,17 +1,21 @@
 package edu.eafit.katio.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.eafit.katio.models.BookByAuthor;
 import edu.eafit.katio.models.Books;
+import edu.eafit.katio.dto.BookByAuthor;
+import edu.eafit.katio.models.Authors;
 import edu.eafit.katio.repository.BookRepository;
 import edu.eafit.katio.repository.BooksByAuthorRepository;
 import edu.eafit.katio.services.BookService;
@@ -47,5 +51,26 @@ public class BookController {
         var response = new BookService(_BooksByAuthorRepository).getAllBooksByAuthor(name, lastname);
         return new ResponseEntity<Iterable<BookByAuthor>>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/getByAuthorNames")
+    public ResponseEntity<Iterable<BookByAuthor>> getAllBooksByAuthorsName(@RequestBody Authors author) {
+        var response = new ArrayList<BookByAuthor>();
+        response.add(new BookByAuthor());
+        return new ResponseEntity<Iterable<BookByAuthor>>(response, HttpStatus.OK);
+    }
+    
+
+    /**
+     * 
+     * Get All Books
+     * get All Books By Author Name or Last name
+     * Get All Books By Author ID
+     * Create new Book
+     * Edit Existing Book by ID
+     * Search book by ISBN
+     * Search Book by ISBN13
+     * Search books by Date
+     * Search books by Genre
+     */
     
 }

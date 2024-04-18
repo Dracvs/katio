@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import edu.eafit.katio.models.BookByAuthor;
+import edu.eafit.katio.dto.BookByAuthor;
 
 public interface BooksByAuthorRepository extends JpaRepository<BookByAuthor, Long> {
     

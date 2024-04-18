@@ -2,8 +2,8 @@ package edu.eafit.katio.services;
 
 import java.util.ArrayList;
 
+import edu.eafit.katio.dto.BookByAuthor;
 import edu.eafit.katio.interfaces.BaseBookService;
-import edu.eafit.katio.models.BookByAuthor;
 import edu.eafit.katio.models.Books;
 import edu.eafit.katio.repository.BookRepository;
 import edu.eafit.katio.repository.BooksByAuthorRepository;
@@ -36,7 +36,7 @@ public class BookService implements BaseBookService {
     @Override
     public Iterable<BookByAuthor> getAllBooksByAuthor(String Name, String Lastname) {
         
-        Iterable<BookByAuthor> bookList = null;
+        Iterable<BookByAuthor> bookList = new ArrayList<BookByAuthor>();
         
         if(Lastname.length() > 0 && Name.length() <= 0)
         {

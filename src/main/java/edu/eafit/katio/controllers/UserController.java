@@ -38,4 +38,18 @@ public class UserController {
         return createdUser.getId() == 0 ? new ResponseEntity<User>(createdUser, HttpStatus.BAD_REQUEST) :
             new ResponseEntity<User>(createdUser, HttpStatus.OK);
     }
+
+    /**
+     * Buscar Usuario por nombre
+     * Buscar usuario por ID
+     * buscar usuario por cedula
+     * Buscar usuario por correo
+     * Post Login
+     * Editar un Usuario
+     * Registrar un nuevo usuario
+     * BLoquear un Usuario
+     * Cambio de Clave (acción combinada)
+     * 
+     * 
+     */
 }    
