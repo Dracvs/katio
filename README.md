@@ -9,3 +9,12 @@ Este project de Spring Boot con JPA y MySQL/MongoDB está diseñado para ser una
 # Como lo instalo
 
 # integrantes
+
+# Demo 18 de mayo 2024
+Vamos a mostrar
+- registro de usuario
+- Login de usuario
+- Transporte en SSL/TLS con un JWT Token
+- Buscar los libros
+- Buscar Autores
+- Emitir reporte de libros más leidos.

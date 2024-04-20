@@ -58,6 +58,13 @@ public class BookController {
         response.add(new BookByAuthor());
         return new ResponseEntity<Iterable<BookByAuthor>>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/getBooksByName")
+    public ResponseEntity<Iterable<Books>> getBookByName(@RequestBody Books book) {
+        var response = new BookService(_bookRepository).getBooksByName(book.getName());
+        return new ResponseEntity<Iterable<Books>>(response, HttpStatus.OK);
+    }
+    
     
 
     /**

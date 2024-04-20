@@ -22,4 +22,8 @@ public interface BookRepository extends CrudRepository<Books, Long> {
                 "WHERE " + //
                 "au.Lastname LIKE :lastname")
     Iterable<Books> findByAuthorLastName(@Param("lastname") String lastname);
+
+    @Query(nativeQuery = true, 
+    value = "SELECT * FROM BOOKS WHERE Name LIKE %:name%")
+    Iterable<Books> findByName(@Param("name") String name);
 }

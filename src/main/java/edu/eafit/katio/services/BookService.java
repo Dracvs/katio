@@ -54,5 +54,11 @@ public class BookService implements BaseBookService {
         
         return bookList;
     }
+
+    @Override
+    public Iterable<Books> getBooksByName(String Name) {
+        var bookList = _bookRepository.findByName(Name);
+        return bookList;
+    }
     
 }

@@ -7,4 +7,5 @@ public interface BaseBookService {
     Iterable<Books> getAllBooks();
     Iterable<Books> getAllBooksByAuthor(int idAuthor);
     Iterable<BookByAuthor> getAllBooksByAuthor(String Name, String Lastname);
+    Iterable<Books> getBooksByName(String Name);
 }
