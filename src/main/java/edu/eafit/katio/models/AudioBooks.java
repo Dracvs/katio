@@ -23,9 +23,8 @@ public class AudioBooks {
 
     private boolean Abridged; // resumido o no.
     private long LengthInSeconds; // Duracion en segundos
-    private String Path; // Donde esta ese libro en el disco.
-    private long NarratorId; // narrador
-    private long AuthorId;
+    private String Path; // Donde esta ese libro en el disco.    
+    private long AuthorId;    
 
     public String getTimeNotation(){
         var minutos = this.LengthInSeconds / 60;
@@ -96,12 +95,6 @@ public class AudioBooks {
     }
     public void setPath(String path) {
         Path = path;
-    }
-    public long getNarratorId() {
-        return NarratorId;
-    }
-    public void setNarratorId(long narratorId) {
-        NarratorId = narratorId;
     }
     public long getAuthorId() {
         return AuthorId;

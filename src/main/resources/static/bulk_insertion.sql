@@ -96,3 +96,18 @@ INSERT INTO Books VALUES
     (0, 'El cuento de la criada', '8498388015', '978-8498388015', '2017-06-17', 'Salamandra', 'Ficcion', '800', 31),    
     (0, 'Asesinato en el Orient Express', '6070743986', '978-6070743986', '2022-02-15', 'Planeta', 'Ficcion', '800', 33),    
     (0, 'Cuentos de Terramar', '8467437560', '978-8467437560', '2007-01-01', 'Planeta', 'Fantasia Epica', '800', 34);    
+
+
+INSERT INTO Audiobooks VALUES
+    (0, 'Cuentos de Terramar', '8467437560', '978-8467437560', '2007-01-01', 'Planeta', 'Fantasia Epica', 1, 10000, 'PATH', 34),    
+    (0, 'Juego de tronos', '1644736135', '978-1644736135', '2022-06-21', 'Vintage', 'Fantasia epica', 1, 10000, 'PATH', 28),    
+    (0, 'Duna', '6073194648', '978-6073194648', '2020-11-17', 'Nova', 'Ciencia Ficción', 1, 10000, 'PATH', 29),    
+    (0, 'El extranjero', '1518660016', '978-1518660016', '2015-10-16', 'Nova', 'Ficcion', 1, 10000, 'PATH', 30),    
+    (0, 'El cuento de la criada', '8498388015', '978-8498388015', '2017-06-17', 'Salamandra', 'Ficcion', 1, 10000, 'PATH', 31),    
+    (0, 'Asesinato en el Orient Express', '6070743986', '978-6070743986', '2022-02-15', 'Planeta', 'Ficcion', 1, 10000, 'PATH', 33);    
+
+INSERT INTO Narrator VALUES
+    (0, 'Ana', 'De Armas', 'Femenino', '1'),
+    (0, 'Henry', 'Cavill', 'Masculino', '2'),
+    (0, 'Steven', 'Spielberg', 'Masculino', '2'),
+    (0, 'Ana', 'Sawai', 'Femenino', '5');
