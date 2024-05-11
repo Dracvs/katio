@@ -15,7 +15,7 @@ public interface BookRepository extends CrudRepository<Books, Long> {
     Iterable<Books> findByAuthorId(@Param("Author_Id") int authorId);
 
     @Query(nativeQuery = true,
-    value = "SELECT " + //
+        value = "SELECT " + //
                 "au.id, bk.id as 'Id', bk.Name as 'Book_Name', bk.ISBN13, au.Name as 'Authors name', au.Lastname as 'Authors last name', CONCAT(au.Name, ' ', au.Lastname) as 'Author' " + //
                 "FROM Authors au " +                 
                 "JOIN Books bk ON bk.author_id = au.id " + //                
@@ -24,6 +24,6 @@ public interface BookRepository extends CrudRepository<Books, Long> {
     Iterable<Books> findByAuthorLastName(@Param("lastname") String lastname);
 
     @Query(nativeQuery = true, 
-    value = "SELECT * FROM BOOKS WHERE Name LIKE %:name%")
+        value = "SELECT * FROM BOOKS WHERE Name LIKE %:name%")
     Iterable<Books> findByName(@Param("name") String name);
 }
