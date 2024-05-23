@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.eafit.katio.models.Books;
+import edu.eafit.katio.models.BooksAuthors;
 import edu.eafit.katio.dto.BookByAuthor;
 import edu.eafit.katio.models.Authors;
 import edu.eafit.katio.repository.BookRepository;
+import edu.eafit.katio.repository.BooksAuthorRepository;
 import edu.eafit.katio.repository.BooksByAuthorRepository;
 import edu.eafit.katio.services.BookService;
+import edu.eafit.katio.services.BooksAuthorsService;
 
 
 @RestController
@@ -31,6 +35,9 @@ public class BookController {
 
     @Autowired
     private BooksByAuthorRepository _BooksByAuthorRepository;
+
+    @Autowired 
+    BooksAuthorRepository _BooksAuthorRepository;
 
     @GetMapping("/getall")
     public ResponseEntity<Iterable<Books>> getAllBooks() {
@@ -67,6 +74,11 @@ public class BookController {
         return new ResponseEntity<Iterable<Books>>(response, HttpStatus.OK);
     }
     
+    @GetMapping("/getBooksByAuthor")
+    public ResponseEntity<Iterable<BooksAuthors>> getBooksByAuthor(){
+        var response = new BooksAuthorsService(_BooksAuthorRepository).getAllBooksAuthors();
+        return new ResponseEntity<Iterable<BooksAuthors>>(response, HttpStatus.OK);
+    }
     
 
     /**

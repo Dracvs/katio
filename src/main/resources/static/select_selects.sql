@@ -27,3 +27,14 @@ JOIN Books bk ON bk.author_id = au.id
 WHERE 
 	au.Lastname LIkE '%Garcia%'; -- Contains, donde el porcentaje equivale a espacio. % == Wildcard
 
+/**
+Author: Lucho Robles
+Date: 2024-05-22
+Tabla cruzada con Join de autores y libros.
+*/
+SELECT bk.id, bk.name, au.id, CONCAT(au.name, au.lastname) as Author 
+
+FROM Books_authors ba
+
+JOIN Books bk ON bk.id = ba.book_id
+JOIN Authors au ON au.id = ba.author_id

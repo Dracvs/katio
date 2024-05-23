@@ -72,3 +72,30 @@ CREATE TABLE Narrator
     Languages NVARCHAR(255) NOT NULL    
 );
 
+CREATE TABLE Books_Authors
+(
+  Book_id INT UNSIGNED NOT NULL,
+  Author_Id INT UNSIGNED NOT NULL,
+  CONSTRAINT `fk_books_id`
+  	FOREIGN KEY (Book_id) REFERENCES Books (Id)
+  	ON DELETE CASCADE
+  	ON UPDATE RESTRICT,
+  CONSTRAINT `fk_authors_id`
+  	FOREIGN KEY (Author_Id) REFERENCES Authors (Id)
+  	ON DELETE CASCADE
+  	ON UPDATE RESTRICT  
+);
+
+ALTER TABLE Books DROP FOREIGN KEY IF EXISTS fk_book_author;
+ALTER TABLE Books DROP COLUMN IF EXISTS Author_id;
+
+
+CREATE VIEW Book_author_view AS
+SELECT 
+	bk.id as Book_id, 
+  bk.name as book_name, 
+  au.id as Author_id, 
+  CONCAT(au.name, " ", au.lastname) as Author_name 
+FROM Books_authors ba
+JOIN Books bk ON bk.id = ba.book_id
+JOIN Authors au ON au.id = ba.author_id
