@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,12 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    // @Autowired
+    // private JwtService jwtService;
+
+    // @Autowired
+    // private AuthenticationManager authenticationManager;
     
     @GetMapping("/getall")
     public ResponseEntity<Iterable<User>> getAllUsers(){
@@ -37,6 +44,12 @@ public class UserController {
         // Operador Ternario ?:
         return createdUser.getId() == 0 ? new ResponseEntity<User>(createdUser, HttpStatus.BAD_REQUEST) :
             new ResponseEntity<User>(createdUser, HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public String autehnticationToken(){//@RequestBody AuthRequest authRequest){
+        //Authentication authentication = authenticationManager.Authenticate(new UserNamePasso)
+        return "";
     }
 
     /**

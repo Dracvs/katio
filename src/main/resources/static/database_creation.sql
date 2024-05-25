@@ -98,4 +98,12 @@ SELECT
   CONCAT(au.name, " ", au.lastname) as Author_name 
 FROM Books_authors ba
 JOIN Books bk ON bk.id = ba.book_id
-JOIN Authors au ON au.id = ba.author_id
+JOIN Authors au ON au.id = ba.author_id;
+
+
+ALTER TABLE IF EXISTS Users 
+	ADD COLUMN IF NOT EXISTS Role_Id nvarchar(10) NOT NULL;
+
+
+
+
