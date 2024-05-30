@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.eafit.katio.models.User;
 import edu.eafit.katio.repository.UserRepository;
+import edu.eafit.katio.services.AuthenticationService;
+import edu.eafit.katio.services.JwtService;
 import edu.eafit.katio.services.UserService;
 
 @RestController
@@ -20,14 +22,17 @@ import edu.eafit.katio.services.UserService;
 @CrossOrigin(origins = "*")
 public class UserController {
 
+    private final JwtService _jwtService;
+    private final AuthenticationService _authService;
+
     @Autowired
     private UserRepository userRepository;
 
-    // @Autowired
-    // private JwtService jwtService;
 
-    // @Autowired
-    // private AuthenticationManager authenticationManager;
+    public UserController(JwtService jwtService, AuthenticationService authService){
+        _jwtService = jwtService;
+        _authService = authService;
+    }
     
     @GetMapping("/getall")
     public ResponseEntity<Iterable<User>> getAllUsers(){
@@ -37,19 +42,20 @@ public class UserController {
     }
 
     @PutMapping("/add")
-    public ResponseEntity<User> addUser(@RequestBody User user){
+    public ResponseEntity<String> addUser(@RequestBody User user){
 
         var createdUser = new UserService(userRepository).addUser(user);        
 
         // Operador Ternario ?:
-        return createdUser.getId() == 0 ? new ResponseEntity<User>(createdUser, HttpStatus.BAD_REQUEST) :
-            new ResponseEntity<User>(createdUser, HttpStatus.OK);
+        return createdUser.getId() == 0 ? 
+            new ResponseEntity<String>("El usuario no pudo ser creado.\n Revise sus valores de entrada.", HttpStatus.BAD_REQUEST) :
+            new ResponseEntity<String>("El usuario ha sido creado correctamente", HttpStatus.OK);
     }
 
-    @PostMapping("/login")
-    public String autehnticationToken(){//@RequestBody AuthRequest authRequest){
-        //Authentication authentication = authenticationManager.Authenticate(new UserNamePasso)
-        return "";
+    @PostMapping("/findbyemail")
+    public ResponseEntity<?> findByEmail(User user){
+        var userObject = new UserService(userRepository).findByEmail(user.getEmail());
+        return ResponseEntity.ok(userObject);
     }
 
     /**

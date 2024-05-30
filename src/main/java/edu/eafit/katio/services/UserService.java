@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import edu.eafit.katio.interfaces.BaseUserService;
 import edu.eafit.katio.models.User;
@@ -32,14 +33,22 @@ public class UserService implements BaseUserService {
             {
                 user.setPasshash(blake3Formatter(user.getPasshash()));
                 createdUser = userRepository.saveAndFlush(user);
-                // AX300F12345
+                if(createdUser.getId() == 0)
+                {
+                    createdUser = null;
+                }
             }
         }
         catch(Exception ex){
-
-        }       
+            System.out.println("[ERROR]: {}" + ex.getMessage());
+        }
         
         return createdUser;
+    }
+
+    public Optional<User> findByEmail(String email)
+    {
+        return userRepository.findByUserName(email);
     }
 
     private String blake3Formatter(String value)  throws NoSuchAlgorithmException
@@ -58,5 +67,4 @@ public class UserService implements BaseUserService {
         }
         return hexString.toString();
     }
-    
 }
