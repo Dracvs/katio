@@ -155,6 +155,7 @@ Vamos a mostrar
 ## BONUS TRACK EXCLUSIVE (Actividad Extra Extra Curricular, SUMA CUM LAUDE)
 
 ```csharp
+// C# Dotnet 8
 public void Main(String[] args)
 {
     const string NET_VERSION = "8.0 (SDK 8.0.301)";
@@ -167,6 +168,7 @@ public void Main(String[] args)
 ## BONUS TRACK GENIUS MODE (Actividad Extra Extra Extra Curricular, SUMA CUM LAUDE, PHD Doctorate)
 
 ```rust
+// Rust Languge 1.78.0
 use std::io;
 
 fn main (){
