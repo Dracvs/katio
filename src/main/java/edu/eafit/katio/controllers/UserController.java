@@ -58,6 +58,23 @@ public class UserController {
         return ResponseEntity.ok(userObject);
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody User user){
+        var updatedUser = new UserService(userRepository);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
+    //   @PutMapping("/update/{username}")
+    // public ResponseEntity<Object> updateUsuario(@PathVariable("username") String username, @RequestBody Usuarios updatedUsuario) {
+    //     var usuarioService = new UsuarioService(usuarioRepository);
+    //     Usuarios usuarioActualizado = usuarioService.updateUsuarioByUsername(username, updatedUsuario);
+    //     if (usuarioActualizado != null) {
+    //         return new ResponseEntity<>(usuarioActualizado, HttpStatus.OK);
+    //     } else {
+    //         return new ResponseEntity<>("Usuario no encontrado", HttpStatus.NOT_FOUND);
+    //     }
+    // }
+
     /**
      * Buscar Usuario por nombre
      * Buscar usuario por ID

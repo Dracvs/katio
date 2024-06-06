@@ -38,3 +38,10 @@ FROM Books_authors ba
 
 JOIN Books bk ON bk.id = ba.book_id
 JOIN Authors au ON au.id = ba.author_id
+
+
+/*Buscar por rango.*/
+SELECT * FROM Books 
+WHERE Published 
+	BETWEEN ('2018-01-01') AND ('2024-12-31')
+	ORDER BY Published ASC
