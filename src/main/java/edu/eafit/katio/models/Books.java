@@ -20,9 +20,7 @@ public class Books {
     private String ISBN13;
     private Date Published;
     private String Edition;
-    private String Genre;
     private String DeweyIndex;
-    
     
     
     public long getId() {
@@ -60,12 +58,6 @@ public class Books {
     }
     public void setEdition(String edition) {
         Edition = edition;
-    }
-    public String getGenre() {
-        return Genre;
-    }
-    public void setGenre(String genre) {
-        Genre = genre;
     }
     public String getDeweyIndex() {
         return DeweyIndex;

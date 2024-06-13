@@ -136,3 +136,8 @@ INSERT INTO Books_Authors (Book_id, Author_id) VALUES
     (41,26), (42,28), (43,29), (44,30), (45,31),
     (46,33), (47,34), (48,1), (48,2), (48,3),
     (48, 7), (48, 10), (48, 15), (48, 12);
+
+INSERT INTO Genres (Name) VALUES
+('Novela'), ('Comedia'), ('Realismo Mágico'),
+('Noveleta'), ('Cuento'), ('Educación'),
+('Química'), ('Física'), ('Matemática');

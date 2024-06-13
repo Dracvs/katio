@@ -8,18 +8,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.eafit.katio.dto.BookByAuthor;
+import edu.eafit.katio.dto.GenreInsertdto;
 import edu.eafit.katio.models.Authors;
 import edu.eafit.katio.models.Books;
 import edu.eafit.katio.models.BooksAuthors;
 import edu.eafit.katio.repository.BookRepository;
 import edu.eafit.katio.repository.BooksAuthorRepository;
 import edu.eafit.katio.repository.BooksByAuthorRepository;
+import edu.eafit.katio.repository.GenreByBookRepository;
+import edu.eafit.katio.repository.GenresRepository;
 import edu.eafit.katio.services.BookService;
 import edu.eafit.katio.services.BooksAuthorsService;
 
@@ -37,6 +41,12 @@ public class BookController {
 
     @Autowired 
     BooksAuthorRepository _BooksAuthorRepository;
+
+    @Autowired
+    GenreByBookRepository _genreByBookRepository;
+
+    @Autowired
+    GenresRepository _genreRepository;
 
     @GetMapping("/getall")
     public ResponseEntity<Iterable<Books>> getAllBooks() {
@@ -85,6 +95,23 @@ public class BookController {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
     
+    @PostMapping("/add")
+    public ResponseEntity<?> addBook(@RequestBody Books book){
+        var response = new BookService(_bookRepository).addBook(book);
+        if(response == null || response.getId() == 0){
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @PostMapping("/addGenres")
+    public ResponseEntity<?> addGenres(@RequestBody GenreInsertdto genre){
+        var response = new BookService(_bookRepository, _genreByBookRepository).addGenre(genre);
+        if(!response){
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
     /**
      * 
